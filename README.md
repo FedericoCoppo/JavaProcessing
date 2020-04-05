@@ -1,6 +1,6 @@
 # JavaProcessing 
-Tutorial for using processing lib and Unfolding map lib
-Hint from UC San Diego Intermediate Software Development team course
+Tutorial for using processing lib and Unfolding map lib.
+Hint from UC San Diego Intermediate Software Development team course.
  
 ## Life expectation PApplet 
 The app parse from a CSV file the country expectation of life data to fill an Hash Map (country ID, value).
