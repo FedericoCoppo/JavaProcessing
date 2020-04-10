@@ -74,8 +74,6 @@ public class ParseFeed {
 		
 			return features;
 		}
-
-	
 	/*
 	 * Gets location from georss:point tag
 	 * 
@@ -123,7 +121,6 @@ public class ParseFeed {
 	private static float getFloatVal(XML itemXML, String tagName) {
 		return Float.parseFloat(getStringVal(itemXML, tagName));
 	}
-	
 
 	/*
 	 * This method is to parse a file containing airport information.  
@@ -179,11 +176,8 @@ public class ParseFeed {
 		}
 
 		return features;
-		
 	}
 	
-	
-
 	/*
 	 * This method is to parse a file containing airport route information.  
 	 * The file and its format can be found: 
@@ -216,16 +210,9 @@ public class ParseFeed {
 				routes.add(route);
 			}
 		}
-			
-		
-		return routes;
-		
-		
-		
+		return routes;	
 	}
 	
-	
-
 	/*
 	 * This method is to parse a file containing life expectancy information from
 	 * the world bank.  
