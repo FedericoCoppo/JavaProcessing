@@ -12,3 +12,8 @@ Create a markers and a features list in order to draw a map (unfolding map lib) 
 The app display a simple map with earthquake data markers.
 
 ![world map life expectation example](https://github.com/FedericoCoppo/JavaProcessing/blob/master/earthQuakeMap1.PNG)
+
+## Earthquake city map with info
+The app display the word earthquake/city map with interactive info (event driven programming, inheritance/polymorphism)
+
+![world map life expectation example](https://github.com/FedericoCoppo/JavaProcessing/blob/master/earthQuakeMap2.PNG)
