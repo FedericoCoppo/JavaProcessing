@@ -11,7 +11,9 @@ import processing.core.PGraphics;
  */
 public class LandQuakeMarker extends EarthquakeMarker {
 	
-	public LandQuakeMarker(PointFeature quake) {	
+	
+	public LandQuakeMarker(PointFeature quake) {
+		
 		// calling EarthquakeMarker constructor
 		super(quake);
 		
@@ -19,14 +21,24 @@ public class LandQuakeMarker extends EarthquakeMarker {
 		isOnLand = true;
 	}
 
-	/** Draw the earthquake as an ellipse */
+
 	@Override
 	public void drawEarthquake(PGraphics pg, float x, float y) {
-		pg.ellipse(x, y, 2*radius, 2*radius);		
+		// IMPLEMENT: drawing circle for LandQuake
+		// DO NOT set the fill color.  That will be set in the EarthquakeMarker
+		// class to indicate the depth of the earthquake.
+		// Simply draw a centered square.
+		// HINT: Notice the radius variable in the EarthquakeMarker class
+		// and how it is set in the EarthquakeMarker constructor
+		pg.ellipse(x, y, 2*radius, 2*radius);
+		
 	}
 	
+
 	// Get the country the earthquake is in
 	public String getCountry() {
 		return (String) getProperty("country");
-	}	
+	}
+
+		
 }

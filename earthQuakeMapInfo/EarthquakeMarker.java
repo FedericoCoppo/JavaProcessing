@@ -1,16 +1,18 @@
 package earthQuakeMapInfo;
 
 import de.fhpotsdam.unfolding.data.PointFeature;
+import processing.core.PConstants;
 import processing.core.PGraphics;
 
 /** Implements a visual marker for earthquakes on an earthquake map
  * 
-	from UC San Diego Intermediate Software Development MOOC team
-	@author
+ * @author UC San Diego Intermediate Software Development MOOC team
  *
  */
-public abstract class EarthquakeMarker extends CommonMarker
+// TODO: Implement the comparable interface
+public abstract class EarthquakeMarker extends CommonMarker implements Comparable <EarthquakeMarker>
 {
+	
 	// Did the earthquake occur on land?  This will be set by the subclasses.
 	protected boolean isOnLand;
 
@@ -34,7 +36,7 @@ public abstract class EarthquakeMarker extends CommonMarker
 	/** Greater than or equal to this threshold is a deep depth */
 	public static final float THRESHOLD_DEEP = 300;
 
-	// ADD constants for colors if you want
+	// ADD constants for colors
 
 	
 	// abstract method implemented in derived classes
@@ -53,7 +55,24 @@ public abstract class EarthquakeMarker extends CommonMarker
 		this.radius = 1.75f*getMagnitude();
 	}
 	
-
+	// TODO: Add the method:
+	public int compareTo(EarthquakeMarker marker)
+	{
+		int res = 0;
+		
+		if (this.getMagnitude() > marker.getMagnitude())
+		{
+			res = - 1;
+		}
+		else if (this.getMagnitude() < marker.getMagnitude())
+		{
+			res = 1;
+		}
+		
+		return res;	
+	}
+	
+	
 	// calls abstract method drawEarthquake and then checks age and draws X if needed
 	@Override
 	public void drawMarker(PGraphics pg, float x, float y) {
@@ -89,11 +108,24 @@ public abstract class EarthquakeMarker extends CommonMarker
 	}
 
 	/** Show the title of the earthquake if this marker is selected */
-	@Override
 	public void showTitle(PGraphics pg, float x, float y)
 	{
-		// TODO: Implement this method
-		pg.text(this.getTitle(), x, y);
+		String title = getTitle();
+		pg.pushStyle();
+		
+		pg.rectMode(PConstants.CORNER);
+		
+		pg.stroke(110);
+		pg.fill(255,255,255);
+		pg.rect(x, y + 15, pg.textWidth(title) +6, 18, 5);
+		
+		pg.textAlign(PConstants.LEFT, PConstants.TOP);
+		pg.fill(0);
+		pg.text(title, x + 3 , y +18);
+		
+		
+		pg.popStyle();
+		
 	}
 
 	
@@ -127,6 +159,14 @@ public abstract class EarthquakeMarker extends CommonMarker
 	}
 	
 	
+	/** toString
+	 * Returns an earthquake marker's string representation
+	 * @return the string representation of an earthquake marker.
+	 */
+	public String toString()
+	{
+		return getTitle();
+	}
 	/*
 	 * getters for earthquake properties
 	 */
@@ -152,4 +192,8 @@ public abstract class EarthquakeMarker extends CommonMarker
 	{
 		return isOnLand;
 	}
+	
+
+	
+	
 }
