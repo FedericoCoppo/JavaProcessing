@@ -14,6 +14,14 @@ The app display a simple map with earthquake data markers.
 ![world map life expectation example](https://github.com/FedericoCoppo/JavaProcessing/blob/master/earthQuakeMap1.PNG)
 
 ## Earthquake city map with info
-The app display the word earthquake/city map with interactive info (event driven programming, inheritance/polymorphism)
+The app display the word earthquake/city map with interactive info (inheritance/polymorphism)
+A comparable is implemented to allow using built-in sorting algo.
+Event driven programming is used: 
+- mouse moving and clicking allow focus on specific earhquake,
+- key pressed from keyboard allow to filter map:
+ '1' to '6' allow map filter for earthquakes magnitude grater than the ke y value 
+ 'l' allow dispaly only "on land" eartquakes
+ 'g'/'m' allow to switch from Microsoft to Google map provider and viceversa
+ 'b' allow to remove last map filter
 
 ![world map life expectation example](https://github.com/FedericoCoppo/JavaProcessing/blob/master/earthQuakeMap2.PNG)
