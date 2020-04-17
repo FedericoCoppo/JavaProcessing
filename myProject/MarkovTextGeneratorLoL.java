@@ -67,6 +67,49 @@ public class MarkovTextGeneratorLoL implements MarkovTextGenerator {
 		}
 	}
 
+	// other train version
+	public void train2(String sourceText)
+	{
+		if(sourceText.length() < 2)
+		{
+			return;
+		}
+		
+		String[] words = sourceText.split("[ ||.]+");  // SPLIT THE TEXT
+		
+		starter = words[0];
+		String prevWord = starter;
+		String nextWord;
+		
+		for (int i = 1; i < words.length; i++) 
+		{
+			nextWord = words[i];
+			
+			// Create a new node with prevWord
+			ListNode n = findNode(prevWord);
+
+			// in case prevWord does not already present in the word list 
+			if(n == null) 
+			{
+				// create a new node
+				n = new ListNode(prevWord);
+
+				// add the next word to this node
+				n.addNextWord(nextWord);
+
+				// insert the node into the list
+				wordList.add(n);
+			}
+			else 
+			{
+				// add the word to the node already present
+				n.addNextWord(nextWord);
+			}
+
+			prevWord = nextWord;
+		}
+	}
+
 	/** 
 	 * Generate the number of words requested.
 	 */
